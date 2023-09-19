@@ -15,13 +15,6 @@ function App() {
 
   const [modalOpen, setModalOpen] = useState(false);
 
-
-  // useEffect(() => {
-  //   fetch('http://localhost:3000')
-  //     .then(response => response.json())
-  //     .then(console.log)
-  // }, []);
-
   const bodyStyles = {
     overflowY: isHamburgerMenuOpen || modalOpen ? 'hidden' : 'auto',
   };
