@@ -80,11 +80,6 @@
 }
 .dashboardImg {
     display: none;
-    background-image: url(../assets/1a1f5af419fe76fe89f188c4e718ea8f.png);
-    background-position: center;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    padding-top: 56.25%;
 }
 .arrowImg {
     display: none;
@@ -128,5 +123,10 @@
     }
     .dashboardImg {
         display: block;
+        background-image: url(../assets/1a1f5af419fe76fe89f188c4e718ea8f.png);
+        background-position: center;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        padding-top: 56.25%;
     }
 }
