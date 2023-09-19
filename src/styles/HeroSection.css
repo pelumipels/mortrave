@@ -1,0 +1,128 @@
+.heroSection {
+    background: #080008;
+    padding-bottom: 20px;
+    .outerDivButton {
+        border-radius: 50px;
+        background: rgba(255, 138, 0, 0.20);
+        width: 170px;
+        height: 60px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        .innerDivButton {
+            display: flex;
+            width: 150px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            background: rgba(255, 138, 0, 0.30);
+            > div {
+                display: flex;
+                width: 130px;
+                height: 40px;
+                color: #FFF;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50px;
+                background: rgba(255, 138, 0, 0.60);
+                border: none;
+            }
+        }
+    }
+    .heroHeaderText {
+        color: #FFF;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 25px;
+        > span {
+            color: #800080;
+        }
+    }
+    .heroText {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 60px;
+    }
+}
+.purpleButton .button1 {
+    border-right: 3px solid #FFF;
+    border-bottom: 3px solid #FFF;
+}
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+    padding: 30px 0;
+    .menuIcon {
+        background-image: url(../assets/menu.svg);
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+}
+.hSlogo {
+    width: 158px;
+    height: 27px;
+}
+.dashboardImg {
+    background-image: url(../assets/1a1f5af419fe76fe89f188c4e718ea8f.png);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    padding-top: 56.25%;
+}
+.arrowImg {
+    display: none;
+}
+.error-message {
+    color: red;
+}
+.success-message {
+    color: blue;
+}
+@media screen and (min-width: 768px) {
+    .heroHeaderText {
+        width: 75%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .heroText {
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .top {
+        display: none;
+    }
+    .arrowImg {
+        display: inline-block;
+        position: absolute;
+        right: 5%;
+        top: 320px;
+        background-image: url(../assets/Arrow\ 07.svg);
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 138.981px;
+        height: 140.481px;
+    }
+    .purpleButton .button1 {
+        width: 230px;
+    }
+}

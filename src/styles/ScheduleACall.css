@@ -1,0 +1,80 @@
+.error-message {
+    color: red;
+}
+.success-message {
+    color: blue;
+}
+.scheduleACall {
+    width: 80%;
+    margin: 0 auto;
+    > h1 {
+        color: #000;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 40px;
+    }
+    > form div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            > label {
+                color: #000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            > input, select, textarea {
+                border-radius: 10px;
+                border: 1px solid rgba(153, 157, 160, 0.35);
+                font-size: 14px;
+                padding: 24px 0 29px 26px;
+            }
+            > select {
+                padding-right: 26px;
+            }
+            > textarea {
+                height: 185px;
+                padding-right: 26px;
+            }
+        }
+    }
+}
+#schedulingACall {
+    width: 100%;
+    max-width: 100%;
+}
+.scheduleButton button {
+    max-width: 350px;
+}
+.closeModalSchedule button {
+    background: red;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+    max-width: 350px;
+}
+
+@media screen and (min-width: 1024px) {
+    .scheduleACall {
+        > h1 {
+            font-size: 40px;
+        }
+        > form div {
+            > div {
+                > label {
+                    font-size: 25px;
+                }
+                > input, select, textarea {
+                    font-size: 18px;
+                    padding: 26px 0 32px 26px;
+                }
+            }
+        }
+    }
+}

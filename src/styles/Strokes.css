@@ -1,0 +1,7 @@
+.strokes {
+    .allStrokes {
+        > svg {
+            width: 100%;
+        }
+    }
+}

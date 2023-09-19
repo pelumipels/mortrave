@@ -1,0 +1,77 @@
+.footer {
+    background: #200220;
+    color: white;
+    padding-left: 20px;
+    padding-bottom: 50px;
+    .overlay {
+        .footerText {
+            color: #FFF;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-bottom: 70px;
+        }
+        .twoFootSect {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            .footerSection {
+                .footerHeading {
+                    color: #FFF;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    margin-bottom: 30px;
+                }
+                > ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    color: #808080;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    > li {
+                        display: flex;
+                        gap: 10px;
+                        > ul {
+                            display: flex;
+                            gap: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.flogo {
+    width: 237px;
+    height: 40px;
+    margin: 70px 0 40px 0;
+}
+@media screen and (min-width: 1024px) {
+    .footer {
+        .overlay {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-top: 50px;
+            .footerText {
+                margin-bottom: 0;
+                max-width: 300px;
+                padding-left: 20px;
+            }
+            .twoFootSect {
+                display: flex;
+                flex-direction: row;
+                gap: 30px;
+            }
+        }
+    }
+    .flogo {
+        margin: 0;
+    }
+}
