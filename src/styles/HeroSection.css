@@ -79,6 +79,7 @@
     height: 27px;
 }
 .dashboardImg {
+    display: none;
     background-image: url(../assets/1a1f5af419fe76fe89f188c4e718ea8f.png);
     background-position: center;
     background-size: 80%;
@@ -124,5 +125,8 @@
     }
     .purpleButton .button1 {
         width: 230px;
+    }
+    .dashboardImg {
+        display: block;
     }
 }
