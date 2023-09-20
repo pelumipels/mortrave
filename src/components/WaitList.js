@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../styles/WaitList.css';
 import PurpleButton from './PurpleButton';
 import Popup from './Popup';
 import { useEmailHandleSubmit } from "./SubmitForm";
+import '../styles/WaitList.css';
 
 function WaitList() {
 

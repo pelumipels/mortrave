@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/Features.css';
 import Image1 from '../assets/a533937fb51c6351a2fba6cc52f8bd19.jpeg';
 import Image2 from '../assets/9a94dac6534059f36206ffef7e443bfc.jpeg';
 import Image3 from '../assets/e48416a794503ecdfb613645c101cebc.jpeg';
 import Image4 from '../assets/997995c75387743d2531d30612722417.jpeg';
+import '../styles/Features.css';
 
 function Features() {
     const featuresContainers = [

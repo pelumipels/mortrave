@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PurpleButton from './PurpleButton';
-import '../styles/HeroSection.css';
 import Logo from './Logo';
 import { useHamburgerMenu } from './HamburgerMenu';
 import Navbar from './Navbar';
@@ -8,6 +7,7 @@ import Popup from './Popup';
 // import {useSubmitFormToGoogleSheets} from "./SubmitFormToGoogleSheets";
 import { useEmailHandleSubmit } from "./SubmitForm";
 import ImageLogo from '../assets/IMG_2529 3.svg';
+import '../styles/HeroSection.css';
 
 function HeroSection() {
 

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import '../styles/Navbar.css';
 import Logo from './Logo';
 import PurpleButton from './PurpleButton';
 import { useHamburgerMenu } from './HamburgerMenu';
 import { Link as ScrollLink } from 'react-scroll';
 import ImageLogo1 from '../assets/mortage 1.svg';
 import ImageLogo2 from '../assets/IMG_2529 3.svg';
+import '../styles/Navbar.css';
 
 
 function Navbar() {

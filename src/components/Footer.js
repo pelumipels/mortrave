@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/Footer.css';
 // import Strokes from './Strokes';
 import Logo from './Logo';
 import ImageLogo2 from '../assets/IMG_2529 3.svg';
+import '../styles/Footer.css';
 
 
 function Footer() {

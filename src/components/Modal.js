@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Modal.css";
 import ScheduleACall from "./ScheduleACall";
+import "../styles/Modal.css";
 
 function Modal({ setOpenModal }) {
   return (
