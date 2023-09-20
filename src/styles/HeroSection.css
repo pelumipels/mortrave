@@ -90,27 +90,10 @@
 .success-message {
     color: blue;
 }
-.formEmail {
-    width: 90%;
-    max-width: 350px;
-    margin: 0 auto 40px auto;
+.purpleButton .button {
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
 }
-/* .formEmail .heroSectionForm1stDiv { */
-.formEmail .heroSectionForm1stDiv input {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0 auto 20px auto;
-    background: transparent;
-    color: #808080;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgba(153, 157, 160, 0.60);
-}
-/* } */
-/* @media screen and (min-width: 1024px) {
-
-} */
 @media screen and (min-width: 768px) {
     .heroHeaderText {
         width: 75%;
@@ -139,21 +122,7 @@
         width: 138.981px;
         height: 140.481px;
     }
-    .formEmail {
-        max-width: 730px;
-    }
-    .formEmail .heroSectionForm1stDiv {
-        display: flex;
-        justify-content: space-between;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .formEmail .heroSectionForm1stDiv input {
-        margin-left: 0;
-        margin-right: 0;
-        max-width: 492px;
-    }
-    .purpleButton .button1 {
+    .purpleButton .button {
         width: 230px;
     }
     .dashboardImg {

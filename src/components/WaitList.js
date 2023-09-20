@@ -63,11 +63,11 @@ return (
             </svg>
             <h1>What are you waiting for? Join the waitlist now to save a spot for yourself</h1>
         </div>
-        <form onSubmit={handleSubmit} disabled={isPopupVisible}>
+        <form onSubmit={handleSubmit} disabled={isPopupVisible} className='formEmail'>
             <div>{isMessageSuccess ? (<div className="success-message">{popupMessage}</div>) : isFormValidMessage ? (<div className="error-message">{popupMessage}</div>) : null}</div>
-            <div>
+            <div className='formDiv'>
                 <input type='email' name='email' id='email1' autoComplete='email' value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder='Enter email address...'  />
-                <PurpleButton innerText={isPopupVisible ? 'Joining...' : 'Join Waitlist'} button="button" />
+                <PurpleButton innerText={isPopupVisible ? 'Joining...' : 'Join Waitlist'} button="button1" />
             </div>
             <Popup message={popupMessage} show={isPopupVisible} />
         </form>

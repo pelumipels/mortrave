@@ -121,9 +121,9 @@ return (
         <div className='heroText'>With Mortrave, you can plan towards a project in your home country and complete it with ease..</div>
         <form onSubmit={handleSubmit} disabled={isPopupVisible} id='joinWaitList' className='formEmail'>
             {isMessageSuccess && <div className="success-message">{popupMessage}</div>}
-            <div className='heroSectionForm1stDiv'>
+            <div className='formDiv'>
                 <input type='email' name='email' id='email' autoComplete='email ' value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder='Enter email address...'  />
-                <PurpleButton innerText={isPopupVisible ? 'Joining...' : 'Join Waitlist'} button="button1" />
+                <PurpleButton innerText={isPopupVisible ? 'Joining...' : 'Join Waitlist'} button="button" />
             </div>
             <Popup message={popupMessage} show={isPopupVisible} />
         </form>

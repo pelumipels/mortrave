@@ -14,3 +14,35 @@ button {
     border: none;
     cursor: pointer;
 }
+.formEmail {
+    width: 90%;
+    max-width: 350px;
+    margin: 0 auto 40px auto;
+}
+.formEmail .formDiv input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto 20px auto;
+    background: transparent;
+    color: #808080;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(153, 157, 160, 0.60);
+}
+@media screen and (min-width: 1024px) {
+    .formEmail {
+        max-width: 730px;
+    }
+    .formEmail .formDiv {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .formEmail .formDiv input {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 492px;
+    }
+}

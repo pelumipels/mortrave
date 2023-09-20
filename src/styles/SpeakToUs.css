@@ -34,30 +34,28 @@
     color: #FFF;
     font-style: normal;
     line-height: normal;
-    > h1 {
-        font-size: 45px;
-        font-weight: 700;
-        margin-bottom: 40px;
-    }
-    > p {
-        font-size: 18px;
-        font-weight: 400;
-        max-width: 309px;
-        margin: 0 auto;
-        margin-bottom: 200px;
-    }
+}
+.topText h1 {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+.topText p {
+    font-size: 18px;
+    font-weight: 400;
+    max-width: 309px;
+    margin: 0 auto;
+    margin-bottom: 200px;
 }
 @media screen and (min-width: 768px) {
-    .topText {
-        > h1 {
-            font-size: 60px;
-            font-weight: 700;
-        }
-        > p {
-            width: 80%;
-            font-size: 40px;
-            max-width: 929px;
-            margin-bottom: 100px;
-        }
+    .topText h1 {
+        font-size: 60px;
+        font-weight: 700;
+    }
+    .topText p {
+        width: 80%;
+        font-size: 40px;
+        max-width: 929px;
+        margin-bottom: 100px;
     }
 }

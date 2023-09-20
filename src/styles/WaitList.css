@@ -2,35 +2,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    > svg {
-        height: auto;
-    }
-    > h1 {
-        position: absolute;
-        text-align: center;
-        width: 85%;
-        margin: 0 auto;
-        color: #000;
-        font-size: 40px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-    }
 }
-form {
-    .purpleButton .button {
-        border-right: 3px solid #000;
-        border-bottom: 3px solid #000;
-    }
+.svgAndText svg {
+    height: auto;
 }
+.svgAndText h1 {
+    position: absolute;
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    color: #000;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.purpleButton .button1 {
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+}
+
 @media screen and (min-width: 1024px) {
-    .purpleButton .button {
+    .purpleButton .button1 {
         width: 230px;
     }
-    .svgAndText {
-        > h1 {
-            max-width: 884px;
-            font-size: 50px;
-        }
+    .svgAndText h1 {
+        max-width: 884px;
+        font-size: 50px;
     }
 }

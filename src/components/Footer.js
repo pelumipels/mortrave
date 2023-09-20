@@ -38,7 +38,7 @@ return (
                         fillOpacity="0.7"
                       />
                     </svg>
-                      +234 904 042 6882
+                      <span>+234 904 042 6882</span>
                   </li>
                   <li>
                     <svg

@@ -156,7 +156,7 @@ function ScheduleACall({setOpenModal}) {
             <h1>Fill the form below to schedule a call with us...</h1>
             <form onSubmit={handleSubmit} disabled={isPopupVisible} id="schedulingACall">
               <div>{isMessageSuccess ? (<div className="success-message">{popupMessage}</div>) : isFormValidMessage ? (<div className="error-message">{popupMessage}</div>) : null}</div>
-              <div>
+              <div className='mainForm'>
                 <div>
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" id="name" autoComplete='name' value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Enter details here" onKeyPress={handleKeyPress} required />
@@ -168,8 +168,6 @@ function ScheduleACall({setOpenModal}) {
                 <div>
                     <label htmlFor="country_of_residence">Country of residence</label>
                     <select name="country_of_residence" id="country_of_residence" value={formData.country_of_residence} onChange={(e) => setFormData({ ...formData, country_of_residence: e.target.value })} required>
-                        {/* <option value="" disabled className="option"></option> */}
-                        {/* {generateCountryOptions()} */}
                         {formData.countryOptions}
                     </select>
                 </div>
