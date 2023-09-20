@@ -10,16 +10,18 @@ import '../styles/ScheduleACall.css';
 
 function ScheduleACall({setOpenModal}) {
 
-    const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
+    // const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
+    const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess } = useEmailHandleSubmit();
 
     const initialFormData = {
         name: '',
         email: '',
         country_of_residence: '',
-        scheduled_date: ''
+        comments: ''
       };
 
-      const endPoint = 'http://localhost:3000/schedulingACall';
+      // const endPoint = 'http://localhost:3000/schedulingACall';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwET_lKGbf9GWFt9L7vcVHJqK7mprjDbGnS67UWnJhZ5C8ARCtQZMEnPIYkXG04Zf26Cg/exec';
 
       const [formData, setFormData] = useState(initialFormData);
 
@@ -44,21 +46,58 @@ function ScheduleACall({setOpenModal}) {
         return true;
       };
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+    // const handleSubmit = (e) => {
+    //     e.preventDefault(); // Prevent the default form submission behavior
         
-        if (validateForm()) {
-          // console.log(1234);
-            // Form is valid, proceed with submission
-            submitForm( initialFormData, formData, setFormData, endPoint );
-            // if (popupMessage) {
-            // }
-            setTimeout(() => {
-              // setPopupVisible(false);
-              setOpenModal(false);
-          }, 4000);
-        }
-    };
+    //     if (validateForm()) {
+    //       // console.log(1234);
+    //         // Form is valid, proceed with submission
+    //         submitForm( initialFormData, formData, setFormData, endPoint );
+    //         // if (popupMessage) {
+    //         // }
+    //         setTimeout(() => {
+    //           // setPopupVisible(false);
+    //           setOpenModal(false);
+    //       }, 4000);
+    //     }
+    // };
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      if (validateForm()) {
+          const formData1 = new FormData(e.target);
+          fetch(scriptURL, {
+              method: 'POST',
+              mode: 'cors', // Important for CORS-enabled requests
+              body: formData1
+          }).then((response) => {
+
+              if (response.status === 200) {
+                  console.log('Success!')
+                  setPopupMessage('Success!');
+                  setPopupVisible(true);
+                  setIsMessageSuccess(true);
+                  setFormData(initialFormData);
+                  setTimeout(() => {
+                      setOpenModal(false);
+                  }, 4000);
+              }
+          }).catch((error) => {
+              // Handle any errors that occur during the POST request
+              console.error('Error:', error);
+              setPopupMessage('Failed!');
+              setPopupVisible(true);
+          })
+          .finally(() => {
+              // Enable the form after the request is complete (success or error)
+              setTimeout(() => {
+                  setPopupVisible(false);
+              }, 3000);
+          });
+      }
+      
+  };
 
     const closeModalSchedule = (e) => {
       e.preventDefault(); // Prevent the default form submission behavior
@@ -135,8 +174,8 @@ function ScheduleACall({setOpenModal}) {
                     </select>
                 </div>
                 <div>
-                    <label htmlFor="scheduled_date">Please share anything that will help prepare for our meeting</label>
-                    <textarea name="scheduled_date" id="scheduled_date" value={formData.scheduled_date} onChange={(e) => setFormData({ ...formData, scheduled_date: e.target.value })}></textarea>
+                    <label htmlFor="comments">Please share anything that will help prepare for our meeting</label>
+                    <textarea name="comments" id="comments" value={formData.comments} onChange={(e) => setFormData({ ...formData, comments: e.target.value })}></textarea>
                 </div>
                 <PurpleButton innerText={isPopupVisible ? 'Scheduling...' : 'Schedule A Call'} purpleButton="scheduleButton" button="button" />
                 <PurpleButton innerText='Close' purpleButton="closeModalSchedule" onClick={closeModalSchedule} />

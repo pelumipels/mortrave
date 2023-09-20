@@ -12,17 +12,19 @@ import '../styles/HeroSection.css';
 function HeroSection() {
 
     const { isHamburgerMenuOpen, setIsHamburgerMenuOpen } = useHamburgerMenu();
-    const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
+    // const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
+    const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess } = useEmailHandleSubmit();
     // const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitFormToGoogleSheets } = useSubmitFormToGoogleSheets();
 
     const initialFormData = {
         email: ''
-      };
+    };
 
-      const endPoint = 'http://localhost:3000/joinWaitList';
-    //   const scriptURL = 'https://script.google.com/macros/s/AKfycbzIvubATs2s8aqtEHeZWdJOBgoJX2bE5c3vVtDlpR_blnSLTTQkoaFOTgMypblnt5yaBQ/exec';
+    //   const endPoint = 'http://localhost:3000/joinWaitList';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzIvubATs2s8aqtEHeZWdJOBgoJX2bE5c3vVtDlpR_blnSLTTQkoaFOTgMypblnt5yaBQ/exec';
 
       const [formData, setFormData] = useState(initialFormData);
+    //   const [formData, setFormData] = useState();
 
       const validateForm = () => {
         // Add your form validation logic here
@@ -45,14 +47,14 @@ function HeroSection() {
         return true;
       };
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+    // const handleSubmit = (e) => {
+    //     e.preventDefault(); // Prevent the default form submission behavior
         
-        if (validateForm()) {
-            // Form is valid, proceed with submission
-            submitForm( initialFormData, formData, setFormData, endPoint );
-        }
-    };
+    //     if (validateForm()) {
+    //         // Form is valid, proceed with submission
+    //         submitForm( initialFormData, formData, setFormData, endPoint );
+    //     }
+    // };
 
     // const handleSubmit = (e) => {
     //     e.preventDefault(); // Prevent the default form submission behavior
@@ -63,27 +65,39 @@ function HeroSection() {
     //     }
     // };
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    //     if (validateForm()) {
-    //         // setIsLoading(true);
-    //         try {
-    //           const formData1 = new FormData(formData);
-    //           await fetch(scriptURL, {
-    //             method: 'POST',
-    //             body: formData1
-    //           });
-    //           alert('Thank you for your response, we will get back to you soon!');
-    //           setIsLoading(false);
-    //           e.target.reset(); 
-    //         } catch (error) {
-    //           alert('An error occurred:', error);
-    //           setIsLoading(false);
-    //         }
-    //     }
+        if (validateForm()) {
+            const formData1 = new FormData(e.target);
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'cors', // Important for CORS-enabled requests
+                body: formData1
+            }).then((response) => {
+
+                if (response.status === 200) {
+                    console.log('Success!')
+                    setPopupMessage('Success!');
+                    setPopupVisible(true);
+                    setIsMessageSuccess(true);
+                    setFormData(initialFormData);
+                }
+            }).catch((error) => {
+                // Handle any errors that occur during the POST request
+                console.error('Error:', error);
+                setPopupMessage('Failed!');
+                setPopupVisible(true);
+            })
+            .finally(() => {
+                // Enable the form after the request is complete (success or error)
+                setTimeout(() => {
+                    setPopupVisible(false);
+                }, 3000);
+            });
+        }
         
-    //   };
+    };
 
     const toggleHamburgerMenu = () => {
         setIsHamburgerMenuOpen(prevState => !prevState);
