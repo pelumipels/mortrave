@@ -26,14 +26,14 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    > li {
-        margin: 25px 0;
-        cursor: pointer;
-    }
-    > li:first-child {
-        font-weight: 700;
-        color: #800080;
-    }
+}
+.navBar ul li {
+    margin: 25px 0;
+    cursor: pointer;
+}
+.navBar ul li:first-child {
+    font-weight: 700;
+    color: #800080;
 }
 .purpleButton .closeButton {
     border-right: 3px solid #000;
@@ -80,21 +80,21 @@
         flex-direction: row;
         font-size: 16px;
         gap: 55px;
-        > li {
-            color: #808080;
-            text-transform: capitalize;
-            transition: transform 0.3s ease;
-        }
-        > li:first-child {
-            color: #FFF;
-            position: relative;
-        }
-        > li:first-child a::after {
-            content: "";
-            background: white;
-            display: block;
-            width: 100%;
-            height: 3px;
-        }
+    }
+    .navBar ul li {
+        color: #808080;
+        text-transform: capitalize;
+        transition: transform 0.3s ease;
+    }
+    .navBar ul li:first-child {
+        color: #FFF;
+        position: relative;
+    }
+    .navBar ul li:first-child a::after {
+        content: "";
+        background: white;
+        display: block;
+        width: 100%;
+        height: 3px;
     }
 }

@@ -1,61 +1,61 @@
 .heroSection {
     background: #080008;
     padding-bottom: 20px;
-    .outerDivButton {
-        border-radius: 50px;
-        background: rgba(255, 138, 0, 0.20);
-        width: 170px;
-        height: 60px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        .innerDivButton {
-            display: flex;
-            width: 150px;
-            height: 50px;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50px;
-            background: rgba(255, 138, 0, 0.30);
-            > div {
-                display: flex;
-                width: 130px;
-                height: 40px;
-                color: #FFF;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50px;
-                background: rgba(255, 138, 0, 0.60);
-                border: none;
-            }
-        }
-    }
-    .heroHeaderText {
-        color: #FFF;
-        font-size: 40px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        margin-bottom: 25px;
-        > span {
-            color: #800080;
-        }
-    }
-    .heroText {
-        color: #FFF;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin-bottom: 60px;
-    }
+}
+.outerDivButton {
+    border-radius: 50px;
+    background: rgba(255, 138, 0, 0.20);
+    width: 170px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.innerDivButton {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: rgba(255, 138, 0, 0.30);
+}
+.innerDivButton div {
+    display: flex;
+    width: 130px;
+    height: 40px;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: rgba(255, 138, 0, 0.60);
+    border: none;
+}
+.heroHeaderText {
+    color: #FFF;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 25px;
+}
+.heroHeaderText span {
+    color: #800080;
+}
+.heroText {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 60px;
 }
 .purpleButton .button1 {
     border-right: 3px solid #FFF;
@@ -67,12 +67,12 @@
     justify-content: space-between;
     margin: 0 20px;
     padding: 30px 0;
-    .menuIcon {
-        background-image: url(../assets/menu.svg);
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-    }
+}
+.menuIcon {
+    background-image: url(../assets/menu.svg);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
 .hSlogo {
     width: 158px;
