@@ -5,6 +5,7 @@ export const useEmailHandleSubmit = () => {
     const [isFormValidMessage] = useState(false);
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [isMessageSuccess, setIsMessageSuccess] = useState(false);
+    const [isErrorMessage, setIsErrorMessage] = useState(false);
 
     const submitForm = ( initialFormData, formData, setFormData, endPoint) => {
 
@@ -44,6 +45,9 @@ export const useEmailHandleSubmit = () => {
             .catch((error) => {
                 // Handle any errors that occur during the POST request
                 console.error('Error:', error);
+                setPopupMessage('Error! Please try again');
+                setPopupVisible(true);
+                setIsErrorMessage(true);
             })
             .finally(() => {
                 // Enable the form after the request is complete (success or error)
@@ -60,6 +64,8 @@ export const useEmailHandleSubmit = () => {
         setPopupVisible,
         isMessageSuccess,
         setIsMessageSuccess,
+        isErrorMessage,
+        setIsErrorMessage,
         submitForm,
     };
 }

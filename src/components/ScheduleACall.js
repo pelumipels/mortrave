@@ -10,8 +10,8 @@ import '../styles/ScheduleACall.css';
 
 function ScheduleACall({setOpenModal}) {
 
-    // const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
-    const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess } = useEmailHandleSubmit();
+    // const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, isErrorMessage, setIsErrorMessage, submitForm } = useEmailHandleSubmit();
+    const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, isErrorMessage, setIsErrorMessage } = useEmailHandleSubmit();
 
     const initialFormData = {
         name: '',
@@ -29,11 +29,10 @@ function ScheduleACall({setOpenModal}) {
         // Add your form validation logic here
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         setIsMessageSuccess(false);
-        // setIsFormValidMessage(false);
+        setIsErrorMessage(false);
 
         if (!formData.email || !formData.email.match(emailPattern)) {
           // Show an error message or take appropriate action for email validation
-        //   setIsFormValidMessage(true);
             setPopupMessage('Invalid email address');
             setPopupVisible(true);
             console.error('Invalid email address');
@@ -50,15 +49,13 @@ function ScheduleACall({setOpenModal}) {
     //     e.preventDefault(); // Prevent the default form submission behavior
         
     //     if (validateForm()) {
-    //       // console.log(1234);
     //         // Form is valid, proceed with submission
     //         submitForm( initialFormData, formData, setFormData, endPoint );
-    //         // if (popupMessage) {
-    //         // }
-    //         setTimeout(() => {
-    //           // setPopupVisible(false);
-    //           setOpenModal(false);
-    //       }, 4000);
+    //         if (popupMessage) {
+    //               setTimeout(() => {
+    //                 setOpenModal(false);
+    //               }, 4000);
+    //         }
     //     }
     // };
 
@@ -86,8 +83,9 @@ function ScheduleACall({setOpenModal}) {
           }).catch((error) => {
               // Handle any errors that occur during the POST request
               console.error('Error:', error);
-              setPopupMessage('Failed!');
+              setPopupMessage('Error! Please try again');
               setPopupVisible(true);
+              setIsErrorMessage(true);
           })
           .finally(() => {
               // Enable the form after the request is complete (success or error)
@@ -155,7 +153,6 @@ function ScheduleACall({setOpenModal}) {
     <div className='scheduleACall'>
             <h1>Fill the form below to schedule a call with us...</h1>
             <form onSubmit={handleSubmit} disabled={isPopupVisible} id="schedulingACall">
-              <div>{isMessageSuccess ? (<div className="success-message">{popupMessage}</div>) : isFormValidMessage ? (<div className="error-message">{popupMessage}</div>) : null}</div>
               <div className='mainForm'>
                 <div>
                     <label htmlFor="name">Name</label>
@@ -175,7 +172,8 @@ function ScheduleACall({setOpenModal}) {
                     <label htmlFor="comments">Please share anything that will help prepare for our meeting</label>
                     <textarea name="comments" id="comments" value={formData.comments} onChange={(e) => setFormData({ ...formData, comments: e.target.value })}></textarea>
                 </div>
-                <PurpleButton innerText={isPopupVisible ? 'Scheduling...' : 'Schedule A Call'} purpleButton="scheduleButton" button="button" />
+                <div>{isMessageSuccess ? (<div className="success-message">{popupMessage}</div>) : isErrorMessage ? (<div className="error-message">{popupMessage}</div>) : null}</div>
+                <PurpleButton innerText={isPopupVisible ? 'Scheduling...' : 'Schedule A Call'} purpleButton="scheduleButton" button="button2" />
                 <PurpleButton innerText='Close' purpleButton="closeModalSchedule" onClick={closeModalSchedule} />
               </div>
             </form>
