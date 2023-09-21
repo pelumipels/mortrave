@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PurpleButton from './PurpleButton';
 import { useEmailHandleSubmit } from "./SubmitForm";
 import Popup from './Popup';
-// import ScheduleACall from './ScheduleACall';
 import countryList from 'country-list';
 import '../styles/ScheduleACall.css';
 
@@ -10,8 +9,8 @@ import '../styles/ScheduleACall.css';
 
 function ScheduleACall({setOpenModal}) {
 
-    // const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
-    const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess } = useEmailHandleSubmit();
+    const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
+    // const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess } = useEmailHandleSubmit();
 
     const initialFormData = {
         name: '',
@@ -21,7 +20,8 @@ function ScheduleACall({setOpenModal}) {
       };
 
       // const endPoint = 'http://localhost:3000/schedulingACall';
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwET_lKGbf9GWFt9L7vcVHJqK7mprjDbGnS67UWnJhZ5C8ARCtQZMEnPIYkXG04Zf26Cg/exec';
+      const endPoint = 'https://mortrave-financial-services-api.onrender.com/schedulingACall';
+      // const scriptURL = 'https://script.google.com/macros/s/AKfycbwET_lKGbf9GWFt9L7vcVHJqK7mprjDbGnS67UWnJhZ5C8ARCtQZMEnPIYkXG04Zf26Cg/exec';
 
       const [formData, setFormData] = useState(initialFormData);
 
@@ -46,58 +46,58 @@ function ScheduleACall({setOpenModal}) {
         return true;
       };
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault(); // Prevent the default form submission behavior
-        
-    //     if (validateForm()) {
-    //       // console.log(1234);
-    //         // Form is valid, proceed with submission
-    //         submitForm( initialFormData, formData, setFormData, endPoint );
-    //         // if (popupMessage) {
-    //         // }
-    //         setTimeout(() => {
-    //           // setPopupVisible(false);
-    //           setOpenModal(false);
-    //       }, 4000);
-    //     }
-    // };
-
     const handleSubmit = (e) => {
-      e.preventDefault();
+        e.preventDefault(); // Prevent the default form submission behavior
+        
+        if (validateForm()) {
+          // console.log(1234);
+            // Form is valid, proceed with submission
+            submitForm( initialFormData, formData, setFormData, endPoint );
+            // if (popupMessage) {
+            // }
+            setTimeout(() => {
+              // setPopupVisible(false);
+              setOpenModal(false);
+          }, 4000);
+        }
+    };
 
-      if (validateForm()) {
-          const formData1 = new FormData(e.target);
-          fetch(scriptURL, {
-              method: 'POST',
-              mode: 'cors', // Important for CORS-enabled requests
-              body: formData1
-          }).then((response) => {
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
 
-              if (response.status === 200) {
-                  console.log('Success!')
-                  setPopupMessage('Success!');
-                  setPopupVisible(true);
-                  setIsMessageSuccess(true);
-                  setFormData(initialFormData);
-                  setTimeout(() => {
-                      setOpenModal(false);
-                  }, 4000);
-              }
-          }).catch((error) => {
-              // Handle any errors that occur during the POST request
-              console.error('Error:', error);
-              setPopupMessage('Failed!');
-              setPopupVisible(true);
-          })
-          .finally(() => {
-              // Enable the form after the request is complete (success or error)
-              setTimeout(() => {
-                  setPopupVisible(false);
-              }, 3000);
-          });
-      }
+  //     if (validateForm()) {
+  //         const formData1 = new FormData(e.target);
+  //         fetch(scriptURL, {
+  //             method: 'POST',
+  //             mode: 'cors', // Important for CORS-enabled requests
+  //             body: formData1
+  //         }).then((response) => {
+
+  //             if (response.status === 200) {
+  //                 console.log('Success!')
+  //                 setPopupMessage('Success!');
+  //                 setPopupVisible(true);
+  //                 setIsMessageSuccess(true);
+  //                 setFormData(initialFormData);
+  //                 setTimeout(() => {
+  //                     setOpenModal(false);
+  //                 }, 4000);
+  //             }
+  //         }).catch((error) => {
+  //             // Handle any errors that occur during the POST request
+  //             console.error('Error:', error);
+  //             setPopupMessage('Failed!');
+  //             setPopupVisible(true);
+  //         })
+  //         .finally(() => {
+  //             // Enable the form after the request is complete (success or error)
+  //             setTimeout(() => {
+  //                 setPopupVisible(false);
+  //             }, 3000);
+  //         });
+  //     }
       
-  };
+  // };
 
     const closeModalSchedule = (e) => {
       e.preventDefault(); // Prevent the default form submission behavior
