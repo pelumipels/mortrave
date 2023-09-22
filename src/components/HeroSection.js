@@ -20,11 +20,11 @@ function HeroSection() {
         email: ''
     };
 
+    //   const endPoint = 'https://mortrave-financial-services-api.onrender.com/joinWaitList';
     //   const endPoint = 'http://localhost:3000/joinWaitList';
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzIvubATs2s8aqtEHeZWdJOBgoJX2bE5c3vVtDlpR_blnSLTTQkoaFOTgMypblnt5yaBQ/exec';
 
       const [formData, setFormData] = useState(initialFormData);
-    //   const [formData, setFormData] = useState();
 
       const validateForm = () => {
         // Add your form validation logic here
@@ -127,7 +127,7 @@ return (
             </div>
             <Popup message={popupMessage} show={isPopupVisible} />
         </form>
-                <div className='arrowImg'></div>
+        <div className='arrowImg'></div>
         <div className='dashboardImg'></div>
     </div>
 )

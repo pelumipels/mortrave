@@ -2,12 +2,11 @@ import { useState } from "react";
 
 export const useEmailHandleSubmit = () => {
     const [popupMessage, setPopupMessage] = useState('');
-    const [isFormValidMessage] = useState(false);
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [isMessageSuccess, setIsMessageSuccess] = useState(false);
     const [isErrorMessage, setIsErrorMessage] = useState(false);
 
-    const submitForm = ( initialFormData, formData, setFormData, endPoint) => {
+    const submitForm = ( initialFormData, formData, setFormData, endPoint, setOpenModal) => {
 
         fetch(endPoint, {
             method: 'POST',
@@ -28,7 +27,6 @@ export const useEmailHandleSubmit = () => {
                 } else if (response.status === 400) {
                     response.json().then(data => {
                         setPopupMessage(data);
-                        // setIsFormValidMessage(true);
                         setPopupVisible(true);
                     })
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -41,13 +39,17 @@ export const useEmailHandleSubmit = () => {
                 setPopupVisible(true);
                 setFormData(initialFormData);
                 setIsMessageSuccess(true);
+                setTimeout(() => {
+                    if (popupMessage === 'Successfully scheduled!') {
+                        setOpenModal(false);
+                    }
+                }, 4000);
             })
             .catch((error) => {
                 // Handle any errors that occur during the POST request
                 console.error('Error:', error);
                 setPopupMessage('Error! Please try again');
                 setPopupVisible(true);
-                setIsErrorMessage(true);
             })
             .finally(() => {
                 // Enable the form after the request is complete (success or error)
@@ -59,7 +61,6 @@ export const useEmailHandleSubmit = () => {
     return {
         popupMessage,
         setPopupMessage,
-        isFormValidMessage,
         isPopupVisible,
         setPopupVisible,
         isMessageSuccess,

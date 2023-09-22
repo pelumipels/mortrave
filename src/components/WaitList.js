@@ -6,13 +6,16 @@ import '../styles/WaitList.css';
 
 function WaitList() {
 
-    const { popupMessage, setPopupMessage, isFormValidMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
+    const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess } = useEmailHandleSubmit();
+    // const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, submitForm } = useEmailHandleSubmit();
 
     const initialFormData = {
         email: ''
       };
 
-      const endPoint = 'http://localhost:3000/joinWaitList';
+    //   const endPoint = 'http://localhost:3000/joinWaitList';
+    //   const endPoint = 'https://mortrave-financial-services-api.onrender.com/joinWaitList';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzIvubATs2s8aqtEHeZWdJOBgoJX2bE5c3vVtDlpR_blnSLTTQkoaFOTgMypblnt5yaBQ/exec';
 
       const [formData, setFormData] = useState(initialFormData);
 
@@ -37,13 +40,47 @@ function WaitList() {
         return true;
       };
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+    // const handleSubmit = (e) => {
+    //     e.preventDefault(); // Prevent the default form submission behavior
         
+    //     if (validateForm()) {
+    //         // Form is valid, proceed with submission
+    //         submitForm( initialFormData, formData, setFormData, endPoint );
+    //     }
+    // };
+
+        const handleSubmit = (e) => {
+        e.preventDefault();
+
         if (validateForm()) {
-            // Form is valid, proceed with submission
-            submitForm( initialFormData, formData, setFormData, endPoint );
+            const formData1 = new FormData(e.target);
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'cors', // Important for CORS-enabled requests
+                body: formData1
+            }).then((response) => {
+
+                if (response.status === 200) {
+                    console.log('Success!')
+                    setPopupMessage('Success!');
+                    setPopupVisible(true);
+                    setIsMessageSuccess(true);
+                    setFormData(initialFormData);
+                }
+            }).catch((error) => {
+                // Handle any errors that occur during the POST request
+                console.error('Error:', error);
+                setPopupMessage('Failed!');
+                setPopupVisible(true);
+            })
+            .finally(() => {
+                // Enable the form after the request is complete (success or error)
+                setTimeout(() => {
+                    setPopupVisible(false);
+                }, 3000);
+            });
         }
+        
     };
 
 return (
@@ -64,7 +101,7 @@ return (
             <h1>What are you waiting for? Join the waitlist now to save a spot for yourself</h1>
         </div>
         <form onSubmit={handleSubmit} disabled={isPopupVisible} className='formEmail'>
-            <div>{isMessageSuccess ? (<div className="success-message">{popupMessage}</div>) : isFormValidMessage ? (<div className="error-message">{popupMessage}</div>) : null}</div>
+            {isMessageSuccess && <div className="success-message">{popupMessage}</div>}
             <div className='formDiv'>
                 <input type='email' name='email' id='email1' autoComplete='email' value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder='Enter email address...'  />
                 <PurpleButton innerText={isPopupVisible ? 'Joining...' : 'Join Waitlist'} button="button1" />

@@ -10,8 +10,8 @@ import '../styles/ScheduleACall.css';
 
 function ScheduleACall({setOpenModal}) {
 
-    // const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, isErrorMessage, setIsErrorMessage, submitForm } = useEmailHandleSubmit();
-    const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, isErrorMessage, setIsErrorMessage } = useEmailHandleSubmit();
+    // const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess, setIsErrorMessage, submitForm } = useEmailHandleSubmit();
+    const { popupMessage, setPopupMessage, isPopupVisible, setPopupVisible, isMessageSuccess, setIsMessageSuccess } = useEmailHandleSubmit();
 
     const initialFormData = {
         name: '',
@@ -21,6 +21,7 @@ function ScheduleACall({setOpenModal}) {
       };
 
       // const endPoint = 'http://localhost:3000/schedulingACall';
+      // const endPoint = 'https://mortrave-financial-services-api.onrender.com/schedulingACall';
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwET_lKGbf9GWFt9L7vcVHJqK7mprjDbGnS67UWnJhZ5C8ARCtQZMEnPIYkXG04Zf26Cg/exec';
 
       const [formData, setFormData] = useState(initialFormData);
@@ -29,7 +30,6 @@ function ScheduleACall({setOpenModal}) {
         // Add your form validation logic here
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         setIsMessageSuccess(false);
-        setIsErrorMessage(false);
 
         if (!formData.email || !formData.email.match(emailPattern)) {
           // Show an error message or take appropriate action for email validation
@@ -50,12 +50,7 @@ function ScheduleACall({setOpenModal}) {
         
     //     if (validateForm()) {
     //         // Form is valid, proceed with submission
-    //         submitForm( initialFormData, formData, setFormData, endPoint );
-    //         if (popupMessage) {
-    //               setTimeout(() => {
-    //                 setOpenModal(false);
-    //               }, 4000);
-    //         }
+    //         submitForm( initialFormData, formData, setFormData, endPoint, setOpenModal );
     //     }
     // };
 
@@ -85,7 +80,6 @@ function ScheduleACall({setOpenModal}) {
               console.error('Error:', error);
               setPopupMessage('Error! Please try again');
               setPopupVisible(true);
-              setIsErrorMessage(true);
           })
           .finally(() => {
               // Enable the form after the request is complete (success or error)
@@ -172,7 +166,7 @@ function ScheduleACall({setOpenModal}) {
                     <label htmlFor="comments">Please share anything that will help prepare for our meeting</label>
                     <textarea name="comments" id="comments" value={formData.comments} onChange={(e) => setFormData({ ...formData, comments: e.target.value })}></textarea>
                 </div>
-                <div>{isMessageSuccess ? (<div className="success-message">{popupMessage}</div>) : isErrorMessage ? (<div className="error-message">{popupMessage}</div>) : null}</div>
+                {isMessageSuccess && <div className="success-message">{popupMessage}</div>}
                 <PurpleButton innerText={isPopupVisible ? 'Scheduling...' : 'Schedule A Call'} purpleButton="scheduleButton" button="button2" />
                 <PurpleButton innerText='Close' purpleButton="closeModalSchedule" onClick={closeModalSchedule} />
               </div>
