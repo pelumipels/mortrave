@@ -122,7 +122,7 @@ return (
         <form onSubmit={handleSubmit} disabled={isPopupVisible} id='joinWaitList' className='formEmail'>
             {isMessageSuccess && <div className="success-message">{popupMessage}</div>}
             <div className='formDiv'>
-                <input type='email' name='email' id='email' autoComplete='email ' value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder='Enter email address...'  />
+                <input type='email' name='email' id='email' autoComplete='email ' value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder='Enter email address...' required />
                 <PurpleButton innerText={isPopupVisible ? 'Joining...' : 'Join Waitlist'} button="button" />
             </div>
             <Popup message={popupMessage} show={isPopupVisible} />
