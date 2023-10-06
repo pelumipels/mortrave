@@ -54,7 +54,7 @@ return (
                         fillOpacity="0.7"
                       />
                     </svg>
-                    mortravefinance@gmail.com
+                    daniel@mortrave.com
                   </li>
                   <li>
                     <ul className='footerSocialMedia'  id='contact-us'>
