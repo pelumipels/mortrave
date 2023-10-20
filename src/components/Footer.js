@@ -42,6 +42,7 @@ return (
                     <li><span>Cookies Policy</span></li>
                 </ul>
               </div>
+              
               <div className='footerSection'>
                 <div className='footerHeading'>Contact</div>
                 <ul>
