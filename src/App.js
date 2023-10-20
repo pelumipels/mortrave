@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { AnimatePresence } from "framer-motion";
@@ -12,14 +12,11 @@ function App() {
 
   const {show, setShow, formFilled} = useHamburgerMenu();
 
-  useEffect(() => {
     window.addEventListener('load', () => {
       // setTimeout(() => {
         setShow(false);
       // }, 2000);
     }, [setShow]);
-
-  }, [setShow]);
 
   const routes = [
     { path: "/", name: "Home", Component: Home },
