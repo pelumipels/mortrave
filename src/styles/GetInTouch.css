@@ -1,0 +1,141 @@
+.getInTouch {
+    width: 80%;
+    max-width: 372px;
+    margin: 0 auto;
+    height: auto;
+    background-color: #800080;
+    border-radius: 24px;
+    text-align: center;
+    overflow: hidden;
+    line-height: normal;
+}
+.getInTouch h1 {
+    width: 80%;
+    margin: 0 auto;
+    color: #FFF;
+    font-family: 'ClashDisplay-Regular';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 47px;
+}
+.phoneStoreImages {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.phoneStoreImages img {
+    width: 47.9%;
+    height: auto;
+}
+.phoneStoreImages .img1 {
+    max-width: 145px;
+}
+.phoneStoreImages .img2 {
+    max-width: 135px;
+}
+.buttonGetInTouch {
+    width: 138px;
+    height: 39px;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: 600;
+    border-radius: 5px;
+    border-right: 3px solid #FFF;
+    border-bottom: 3px solid #FFF;
+    background: #000;
+    margin-top: 15px;
+    transition: color .5s, border-right .5s, border-bottom .5s, background .5s;
+}
+.buttonGetInTouch:hover {
+    color: #000;
+    background: #fff;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+}
+.getInTouchImages {
+    display: flex;
+    justify-content: center;
+    margin-top: 23px;
+}
+.getInTouchImages div {
+    display: flex;
+    position: relative;
+}
+.getInTouchImages img {
+    width: auto;
+}
+.getInTouchImages .img3 {
+    position: absolute;
+    left: -20px;
+    top: 40px;
+}
+.getInTouch p {
+    color: #FFF;
+    font-family: 'ClashDisplay-Medium';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 15px;
+}
+@media screen and (min-width: 1024px) {
+    .getInTouch {
+        max-width: 1264px;
+        display: flex;
+        justify-content: space-around;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .getInTouch .leftSide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .getInTouch h1 {
+        margin: 0;
+        text-align: left;
+        width: 90%;
+        font-size: 48px;
+    }
+    .getInTouchImages {
+        margin-top: 0;
+    }
+    .phoneStoreImages {
+        justify-content: flex-start;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .phoneStoreImages .img1 {
+        max-width: 160px;
+    }
+    .phoneStoreImages .img2 {
+        max-width: 145px;
+    }
+    .getInTouch p {
+        text-align: left;
+        font-size: 32px;
+    }
+    .buttonGetInTouch {
+        justify-content: flex-start;
+        justify-items: flex-start;
+        width: 209px;
+    }
+    .getInTouchImages .img3 {
+        width: 190px;
+        top: 40px;
+        left: -60px;
+    }
+    .getInTouchImages .img4 {
+        height: 403px;
+        width: 351px;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .getInTouch h1 {
+        width: 100%;
+    }
+}

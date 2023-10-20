@@ -1,72 +1,61 @@
 import { useState } from "react";
+import { useHamburgerMenu } from './HamburgerMenu';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 export const useEmailHandleSubmit = () => {
-    const [popupMessage, setPopupMessage] = useState('');
-    const [isPopupVisible, setPopupVisible] = useState(false);
     const [isMessageSuccess, setIsMessageSuccess] = useState(false);
-    const [isErrorMessage, setIsErrorMessage] = useState(false);
+    const { setLoading, setFormFilled } = useHamburgerMenu();
 
-    const submitForm = ( initialFormData, formData, setFormData, endPoint, setOpenModal) => {
+    const navigate = useNavigate();
 
-        fetch(endPoint, {
+    const submitFormToGoogleSheets = ( initialFormData, formData, setFormData, scriptURL) => {
+        setLoading(true);
+        const formDataBody = new FormData(formData);
+
+        fetch(scriptURL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData) // Send the email as JSON data
+            mode: 'cors', // Important for CORS-enabled requests
+            body: formDataBody // Send the email as JSON data
             })
             .then((response) => {
-                if (response.status === 409) {
-                    response.json().then(data => {
-                        setPopupMessage(data);
-                        setPopupVisible(true);
-                    })
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                } else if (response.status >= 500) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                } else if (response.status === 400) {
-                    response.json().then(data => {
-                        setPopupMessage(data);
-                        setPopupVisible(true);
-                    })
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+                if (response.status === 200) {
+                    setIsMessageSuccess(true);
+                    setFormData(initialFormData);
                 }
-                return response.json()
-            })
-            .then((data) => {
-                console.log(data);
-                setPopupMessage(data);
-                setPopupVisible(true);
-                setFormData(initialFormData);
-                setIsMessageSuccess(true);
-                setTimeout(() => {
-                    if (popupMessage === 'Successfully scheduled!') {
-                        setOpenModal(false);
-                    }
-                }, 4000);
-            })
-            .catch((error) => {
+            }).catch((error) => {
                 // Handle any errors that occur during the POST request
                 console.error('Error:', error);
-                setPopupMessage('Error! Please try again');
-                setPopupVisible(true);
             })
             .finally(() => {
                 // Enable the form after the request is complete (success or error)
-                setTimeout(() => {
-                    setPopupVisible(false);
-                }, 3000);
-            });
-    }
+                setLoading(false);
+                const toastType = isMessageSuccess ? 'success' : 'error';
+                if (toastType && !formDataBody.has('name')) {
+                    setFormFilled(true);
+                    const successData = {
+                        successMessageTopic: "You have joined our waitlist!",
+                        successMessageDetail: "We will notify you when we are ready to launch."
+                    };
+                    navigate('/successful-form-submission', { state: { successData }})
+                } else if (toastType && formDataBody.has('name')) {
+                    setFormFilled(true);
+                    const successData = {
+                        successMessageTopic: "You have scheduled a call!",
+                        successMessageDetail: "We will notify you on more information about the call"
+                    };
+                    navigate('/successful-form-submission', { state: { successData }})
+                } else {
+                    toast.error('Error! Please try again', {
+                        position: toast.POSITION.TOP_LEFT
+                    });
+                }
+            })
+
+        }
+
     return {
-        popupMessage,
-        setPopupMessage,
-        isPopupVisible,
-        setPopupVisible,
-        isMessageSuccess,
-        setIsMessageSuccess,
-        isErrorMessage,
-        setIsErrorMessage,
-        submitForm,
+        submitFormToGoogleSheets
     };
 }

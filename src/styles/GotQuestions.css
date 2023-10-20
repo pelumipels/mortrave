@@ -1,0 +1,132 @@
+.gotQuestions {
+    margin  : 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    max-width: 719px;
+}
+.gotQuestions .faq,
+.gotQuestions h1,
+.gotQuestions p {
+    text-align: center;
+}
+.gotQuestions .faq {
+    color:#800080;
+    font-family: 'Metropolis';
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.gotQuestions h1 {
+    color: #FFF;
+    font-family: 'ClashDisplay-Regular';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    margin-top: 12px;
+}
+.gotQuestions p {
+    color: #B4B4B4;
+    font-family: 'Metropolis';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: 12px;
+}
+.column-container button {
+    background-color: transparent;
+}
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 20px;
+    margin-top: 10px;
+    transition: background-color .4s;
+}
+.expendable-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.underline {
+    width: 100%;
+    height: 1px;
+    background: rgba(148, 148, 148, 0.50);
+    margin: 12px auto;
+}
+.hidden-underline {
+    display: none;
+}
+.column-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+}
+.accordion-container .column-container:hover {
+    background-color: #333;
+}
+.column-text {
+    color:#FFF;
+    font-family: 'ClashDisplay-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.72px;
+}
+.column-container:hover {
+    background-color: var(--gh-blue-1);
+    width: 100%;
+}
+
+.text-container {
+    color: #B4B4B4;
+    font-family: 'Metropolis';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+    max-height: 350px;
+    opacity: 1;
+    animation-name: textanimate;
+    animation-duration: 1s;
+}
+
+@keyframes textanimate {
+    0% {
+        opacity: 0;
+        max-height: 15px;
+    }
+    100% {
+        opacity: 1;
+        max-height: 350px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .gotQuestions .faq {
+        font-size: 14px;
+    }
+    .gotQuestions h1 {
+        font-size: 40px;
+    }
+    .gotQuestions p {
+        font-size: 16px;
+        margin-bottom: 46px;
+    }
+    .column-text {
+        font-size: 20px;
+    }
+    .text-container {
+        font-size: 16px;
+    }
+}

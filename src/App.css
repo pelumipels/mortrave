@@ -1,11 +1,51 @@
+@font-face {
+    font-family: ClashDisplay-Extralight;
+    src: url(./fonts/ClashDisplay/ClashDisplay-Extralight.otf);
+}
+@font-face {
+    font-family: ClashDisplay-Light;
+    src: url(./fonts/ClashDisplay/ClashDisplay-Light.otf);
+}
+@font-face {
+    font-family: ClashDisplay-Regular;
+    src: url(./fonts/ClashDisplay/ClashDisplay-Regular.otf);
+}
+@font-face {
+    font-family: ClashDisplay-Medium;
+    src: url(./fonts/ClashDisplay/ClashDisplay-Medium.otf);
+}
+@font-face {
+    font-family: ClashDisplay-SemiBold;
+    src: url(./fonts/ClashDisplay/ClashDisplay-Semibold.otf);
+}
+@font-face {
+    font-family: ClashDisplay-Bold;
+    src: url(./fonts/ClashDisplay/ClashDisplay-Bold.otf);
+}
+@font-face {
+    font-family: Metropolis-Medium;
+    src: url(./fonts/Metropolis/Metropolis-Medium.otf);
+}
+@font-face {
+    font-family: Metropolis;
+    src: url(./fonts/Metropolis/Metropolis-Regular.otf);
+}
+@font-face {
+    font-family: Metropolis-ExtraLight;
+    src: url(./fonts/Metropolis/Metropolis-ExtraLight.otf);
+}
 * {
     margin: 0;
     padding: 0;
 }
+::selection {
+    background-color: #800080;
+    color: black;
+}
 .App {
-    font-family: 'Lato', sans-serif;
     max-width: 1440px;
     margin: 0 auto;
+    background-color: #000;
 }
 li {
     list-style: none;
@@ -13,36 +53,4 @@ li {
 button {
     border: none;
     cursor: pointer;
-}
-.formEmail {
-    width: 90%;
-    max-width: 350px;
-    margin: 0 auto 40px auto;
-}
-.formEmail .formDiv input {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0 auto 20px auto;
-    background: transparent;
-    color: #808080;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgba(153, 157, 160, 0.60);
-}
-@media screen and (min-width: 1024px) {
-    .formEmail {
-        max-width: 730px;
-    }
-    .formEmail .formDiv {
-        display: flex;
-        justify-content: space-between;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .formEmail .formDiv input {
-        margin-left: 0;
-        margin-right: 0;
-        max-width: 492px;
-    }
 }

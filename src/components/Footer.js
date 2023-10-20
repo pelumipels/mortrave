@@ -1,18 +1,39 @@
 import React from 'react';
-// import Strokes from './Strokes';
 import Logo from './Logo';
-import ImageLogo2 from '../assets/IMG_2529 3.svg';
+import { Zoom, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Footer.css';
-
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Link } from 'react-router-dom';
 
 function Footer() {
+
+  const handleCopySuccess = () => {
+    toast.success("Copied!",{
+      transition: Zoom,
+      position: toast.POSITION.BOTTOM_CENTER
+    });
+  };
+
+  const handleEmailSuccess = () => {
+    toast.info('Launching external handler for "mailto:daniel@mortrave.com"',{
+      transition: Zoom,
+      position: toast.POSITION.BOTTOM_CENTER,
+      autoClose: false
+    });
+  };
+
+  const getCurrentYear = () => {
+    return new Date().getFullYear();
+  }
 
 return (
     <div className='footer'>
         <div className='overlay'>
-            <Logo logo='flogo' LogoImage={ImageLogo2} />
+          <div>
+            <Logo logo='footerLogo' />
             <div className='footerText'>Your go-to for planning and executing projects in Africa from anywhere in the world</div>
-            <div className='twoFootSect'>
+          </div>
               <div className='footerSection'>
                 <div className='footerHeading'>Links</div>
                 <ul>
@@ -24,7 +45,8 @@ return (
               <div className='footerSection'>
                 <div className='footerHeading'>Contact</div>
                 <ul>
-                  <li>
+                    <CopyToClipboard text="+2349040426882" onCopy={handleCopySuccess}>
+                  <li style={{cursor:'pointer'}}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={25}
@@ -40,7 +62,9 @@ return (
                     </svg>
                       <span>+234 904 042 6882</span>
                   </li>
+                    </CopyToClipboard>
                   <li>
+                    <Link to="mailto:daniel@mortrave.com" onClick={handleEmailSuccess}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={25}
@@ -54,7 +78,8 @@ return (
                         fillOpacity="0.7"
                       />
                     </svg>
-                    daniel@mortrave.com
+                      daniel@mortrave.com
+                    </Link>
                   </li>
                   <li>
                     <ul className='footerSocialMedia'  id='contact-us'>
@@ -107,7 +132,9 @@ return (
                   </li>
                 </ul>
               </div>
-            </div>
+        </div>
+        <div className='copyright'>
+          Copyright {getCurrentYear()} &copy; Mortrave All Rights Reserved.
         </div>
   </div>
 )

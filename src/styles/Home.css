@@ -1,0 +1,14 @@
+.Toastify__toast {
+    background-color: black;
+    border:0.2px solid rgba(153, 157, 160, 0.60);
+    border-Radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+.Toastify__toast-body {
+    color: white;
+    text-align: center;
+}
+.Toastify__close-button {
+    color: white;
+}

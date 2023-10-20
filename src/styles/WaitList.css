@@ -1,33 +1,198 @@
-.svgAndText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.svgAndText svg {
-    height: auto;
-}
-.svgAndText h1 {
-    position: absolute;
-    text-align: center;
-    width: 85%;
+.waitList {
+    width: 80%;
+    max-width: 342px;
     margin: 0 auto;
-    color: #000;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    border-radius: 24px;
+    background-color: hsl(300, 100%, 25%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
-.purpleButton .button1 {
+.waitList h1 {
+    color: #FFF;
+    font-family: 'ClashDisplay-Medium';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 54px;
+}
+.waitList .waitListDetail {
+    color: #EDEDED;
+    font-family: 'Metropolis';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+}
+.formEmail3 {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    max-width: 274px;
+    margin: 20px auto 0 auto;
+}
+.formEmail3 .formDiv3 .inputLabel2 {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    margin: 0 auto 10px auto;
+}
+.formDiv3 input {
+    background: #800080;
+    padding: 10px 15px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    color: #fff;
+}
+.placeholder2 {
+    position: absolute;
+    top: 11px;
+    left: 8px;
+    font-size: 18px;
+    padding: 0 10px;
+    padding-left: 0;
+    color: #fff;
+    box-sizing: border-box;
+    transition: 0.3s;
+    pointer-events: none;
+    line-height: 22px;
+    width: 94%;
+    background: #800080;
+    border-radius: 5px;
+}
+.formEmail3 .formDiv3 input:focus + .placeholder2 {
+    top: -11px;
+    color: rgba(153, 157, 160, 0.60);
+    background: #800080;
+    width: auto;
+    padding-left: 10px;
+    color: black;
+}
+.inputLabel2 div {
+    position: relative;
+    height: 100%;
+}
+.formEmail3 .formDiv3 input:focus,
+.formEmail3 .formDiv3 input:hover {
+    border: 1px solid #000;
+}
+.joinWaitlistSecondButton {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    height: 45px;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: 600;
+    border-right: 3px solid #FFF;
+    border-bottom: 3px solid #FFF;
+    background: #000;
+    transition: color .5s, border-right .5s, border-bottom .5s, background .5s;
+}
+.joinWaitlistSecondButton:hover {
+    color: #000;
+    background: #fff;
     border-right: 3px solid #000;
     border-bottom: 3px solid #000;
 }
-
+.waitListImages {
+    display: flex;
+    justify-content: center;
+}
+.waitListImages div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    height: 349px;
+    width: 100%;
+}
+.waitListImages img {
+    width: 100%;
+}
+.waitListImages .youImage {
+    position: absolute;
+    width: 50px;
+    right: 0;
+}
+.waitListImages .iPhone13 {
+    width: 75%;
+    max-width: 253px;
+    margin: 0 auto;
+    object-fit: cover;
+    position: relative;
+    top: 40px;
+}
 @media screen and (min-width: 1024px) {
-    .purpleButton .button1 {
-        width: 230px;
+    .waitList {
+        max-width: 1264px;
     }
-    .svgAndText h1 {
-        max-width: 884px;
-        font-size: 50px;
+    .waitListWrapper {
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .waitListWrapperInner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        width: 100%;
+    }
+    .waitList h1 {
+        margin-top: 0;
+    }
+    .waitList .waitListDetail {
+        margin-bottom: 20px;
+    }
+    .formEmail3 {
+        width: auto;
+        max-width: none;
+        margin: 0;
+    }
+    .formDiv3 {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .formDiv3 input {
+        flex: 1;
+        max-width: 492px;
+        margin: 0;
+    }
+    .formEmail3 .formDiv3 .inputLabel2 {
+        margin-bottom: 0;
+    }
+    .placeholder2 {
+        padding-right: 0;
+        width: 91%;
+    }
+    .joinWaitlistSecondButton {
+        width: 230px;
+        flex: 1;
+        margin: 0;
+    }
+    .waitListImages {
+        position: relative;
+    }
+    .waitListImages div {
+        height: 391px;
+        margin-top: 30px;
+    }
+    .waitListImages .iPhone13 {
+        margin: 0;
+        max-width: none;
+        width: 321px;
     }
 }

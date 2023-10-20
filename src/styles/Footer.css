@@ -1,28 +1,31 @@
 .footer {
-    background: #200220;
     color: white;
     padding-left: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
+}
+.footer a {
+    display: flex;
+    color: #808080;
+    gap: 10px;
 }
 .footerText {
     color: #FFF;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-family: 'Metropolis-ExtraLight';
     line-height: normal;
-    margin-bottom: 70px;
-}
-.twoFootSect {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    margin-bottom: 50px;
 }
 .footerHeading {
     color: #FFF;
     font-size: 20px;
     font-style: normal;
+    font-family: 'ClashDisplay-Medium';
     font-weight: 700;
     line-height: normal;
+    margin-bottom: 30px;
+}
+.footerSection {
     margin-bottom: 30px;
 }
 .footerSection ul {
@@ -31,6 +34,7 @@
     gap: 10px;
     color: #808080;
     font-size: 18px;
+    font-family: 'Metropolis';
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -44,29 +48,44 @@
     flex-direction: row;
     gap: 22px;
 }
-.flogo {
+.footerLogo {
+    background-image: url(../assets/192f4d2affe78495a35e5e8162df7bff.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 237px;
-    height: 40px;
-    margin: 70px 0 40px 0;
+    height: 46px;
+    margin: 70px 0 30px 0;
+}
+.copyright {
+    margin-top: 30px;
+    font-family: 'Metropolis';
+    color: #A9A9A9;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
 }
 @media screen and (min-width: 1024px) {
+    .footer {
+        padding-left: 0;
+    }
     .overlay {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
         padding-top: 50px;
     }
     .footerText {
         margin-bottom: 0;
         max-width: 300px;
-        padding-left: 20px;
     }
-    .twoFootSect {
-        display: flex;
-        flex-direction: row;
-        gap: 30px;
+    .footerSection {
+        margin-bottom: 0;
     }
-    .flogo {
-        margin: 0;
+    .footerLogo {
+        margin-top: 0;
+    }
+    .copyright {
+        text-align: center;
     }
 }

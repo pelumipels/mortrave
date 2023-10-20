@@ -1,18 +1,16 @@
 import React, { useEffect } from 'react'
 import Logo from './Logo';
-import PurpleButton from './PurpleButton';
+import Button from './Button';
+import '../styles/Navbar.css';
 import { useHamburgerMenu } from './HamburgerMenu';
 import { Link as ScrollLink } from 'react-scroll';
-import ImageLogo1 from '../assets/mortage 1.svg';
-import ImageLogo2 from '../assets/IMG_2529 3.svg';
-import '../styles/Navbar.css';
 
 
 function Navbar() {
 
     const { isHamburgerMenuOpen, setIsHamburgerMenuOpen } = useHamburgerMenu();
 
-    const hmburgerClass = isHamburgerMenuOpen ? 'navBar open' : 'navBar';
+    const hamburgerClass = isHamburgerMenuOpen ? 'navBar open' : 'navBar';
 
     useEffect(() => {
         const handleWindowResize = () => {
@@ -30,19 +28,23 @@ function Navbar() {
       }, [setIsHamburgerMenuOpen]);
 
       const closeHamburgerMenu = () => {
-        setIsHamburgerMenuOpen(false);
+          setIsHamburgerMenuOpen(false);
       };
 
   return (
-    <div className={hmburgerClass}>
-      <Logo logo='navBarLogo' LogoImage={window.innerWidth < 1024 ? ImageLogo1 : ImageLogo2} />
+    <div className={hamburgerClass}>
+      <div className='cancelIcon' onClick={closeHamburgerMenu}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <path d="M13.5161 34.486L24.0021 24L34.4881 34.486M34.4881 13.514L24.0001 24L13.5161 13.514" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+      <Logo logo='navBarLogo2' />
       <ul>
         <li><ScrollLink onClick={closeHamburgerMenu} smooth={true} to='home'>Home</ScrollLink></li>
         <li><ScrollLink onClick={closeHamburgerMenu} smooth={true} to='features'>Features</ScrollLink></li>
         <li><ScrollLink onClick={closeHamburgerMenu} smooth={true} to='contact-us'>Contact Us</ScrollLink></li>
       </ul>
-      <PurpleButton innerText='Close' button='closeButton' purpleButton='closeBtnpurpleButton' onClick={closeHamburgerMenu} />
-      <ScrollLink smooth={true} to='heroHeaderText' ><PurpleButton innerText='Join Waitlist' button='joinWaitlistNavButton' purpleButton='joinWaitListpurpleButton' /></ScrollLink>
+      <ScrollLink onClick={() => {window.innerWidth < 1024 && closeHamburgerMenu()}} smooth={true} to='heroHeaderText' ><Button innerText='Join Waitlist' button='joinWaitlistNavButton' /></ScrollLink>
     </div>
   )
 }

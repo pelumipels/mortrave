@@ -1,0 +1,68 @@
+.successPageContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+.successPageImages {
+  height: 225.317px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.successPageImages img {
+  position: absolute;
+}
+.successMessageTopic {
+  color: #FFF;
+  text-align: center;
+  font-family: 'ClashDisplay-Medium';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.36px;
+}
+.successMessageDetail {
+  color: #FFF;
+  text-align: center;
+  font-family: 'Metropolis-Medium';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.onSuccessPageButton {
+  width: 100%;
+  max-width: 320px;
+  height: 45px;
+  font-size: 16px;
+  color: #FFF;
+  font-weight: 600;
+  border-right: 3px solid #FFF;
+  border-bottom: 3px solid #FFF;
+  background: #800080;
+  transition: color .5s, border-right .5s, border-bottom .5s, background .5s;
+}
+.onSuccessPageButton:hover {
+  color: #800080;
+  background: #fff;
+  border-right: 3px solid #800080;
+  border-bottom: 3px solid #800080;
+}
+@media screen and (min-width: 768px) {
+  .successPageContainer {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .successPageContainer {
+    width: 50%;
+  }
+}
