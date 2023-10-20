@@ -34,13 +34,13 @@ function App() {
 
   return (
       <div className='App'>
-        {show ? (<Loading />) :(
-          <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
+          {show ? (<Loading />) :(
             <Routes>
               {routeComponents}
             </Routes>
-          </AnimatePresence>
-        )}
+          )}
+        </AnimatePresence>
       </div>
   );
 }
