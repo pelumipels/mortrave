@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/Loading.css';
 import { useHamburgerMenu } from './HamburgerMenu';
-import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+
 
 function Loading({ loading }) {
-  const { show } = useHamburgerMenu();
+  const { show, setShow } = useHamburgerMenu();
 
+  useEffect(() => {
+    // Use GSAP to fade out the loading spinner
+    if (show) {
+      // Use GSAP to fade out the loading spinner
+      gsap.to('.svg-container', {
+        opacity: 0,
+        duration: 3,
+        onComplete: () => setShow(false),
+      });
+    }
+}, [show, setShow]);
 
   return show ? (
-    <motion.div 
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
-      transition={{duration: .4, ease: 'ease'}}
-      className="svg-container"
-    >
+    <div className="svg-container">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 142" fill="none">
         <circle cx="70.5823" cy="70.5825" r="44.5156" stroke="white" strokeWidth="1.58984" />
         <path
@@ -23,7 +29,7 @@ function Loading({ loading }) {
           fill="white"
         />
       </svg>
-    </motion.div>
+    </div>
     ) : loading ? (
     <div className="svg-container loading">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 142" fill="none">

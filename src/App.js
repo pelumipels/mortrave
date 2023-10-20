@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { AnimatePresence } from "framer-motion";
-import { gsap } from 'gsap';
 import Loading from './components/Loading';
 import Home from './pages/Home';
 import SuccessPage from './pages/SuccessPage';
@@ -11,13 +10,7 @@ import { useHamburgerMenu } from './components/HamburgerMenu';
 
 function App() {
 
-  const {show, setShow, formFilled} = useHamburgerMenu();
-
-  useEffect(() => {
-          // Use GSAP to fade out the loading spinner
-    gsap.to('.svg-container', { opacity: 0, duration: 1, onComplete: () => setShow(false) });
-        // setShow(false);
-  }, [setShow]);
+  const {show, formFilled} = useHamburgerMenu();
 
   const routes = [
     { path: "/", name: "Home", Component: Home },
