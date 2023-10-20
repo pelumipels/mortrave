@@ -61,7 +61,7 @@ return (
                         fillOpacity="0.7"
                       />
                     </svg>
-                      <span>+234 909 988 8996</span>
+                      <span className='number'>+234 909 988 8996</span>
                   </li>
                     </CopyToClipboard>
                   <li>
