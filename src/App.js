@@ -20,7 +20,7 @@ function App() {
 
   const routeComponents = routes.map(({ path, Component }, index) => {
     if (path === "/successful-form-submission" && !formFilled) {
-      // If formFiled is false, route to the Home page instead of SuccessPage
+      // If formFiled is false, route to the Home page instead of SuccessPage.
       return (
         <Route key={index} path={path} element={<Home />} />
       );

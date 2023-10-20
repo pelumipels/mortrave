@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import GroupMark from '../assets/GroupMark.svg'
 import GroupCircle from '../assets/GroupCircle.svg'
 import GroupBackground from '../assets/GroupBackground.svg'
 import GroupInnerCircle from '../assets/GroupInnerCircle.svg'
 import Button from "../components/Button";
 import "../styles/SuccessPage.css";
-import { gsap } from 'gsap';
 import { motion } from 'framer-motion';
 import { useHamburgerMenu } from '../components/HamburgerMenu';
 import { useNavigate, useLocation } from "react-router-dom";
