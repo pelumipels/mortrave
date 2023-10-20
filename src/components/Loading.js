@@ -11,7 +11,7 @@ function Loading({ loading }) {
       // setTimeout(() => {
         setShow(false);
       // }, 2000);
-    }, []);
+    }, [setShow]);
 
   }, [setShow]);
 
