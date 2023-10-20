@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/Loading.css';
 import { useHamburgerMenu } from './HamburgerMenu';
+import { gsap } from 'gsap';
 
 function Loading({ loading }) {
-  const { show } = useHamburgerMenu();
+  const { show, setShow } = useHamburgerMenu();
+
+  useEffect(() => {
+    window.addEventListener('load', () => {
+
+      // Use GSAP to fade out the loading spinner
+      gsap.to('.svg-container', { opacity: 0, duration: 1, onComplete: () => setShow(false) });
+
+    }, []);
+
+  }, [setShow]);
 
   return show ? (
     <div className="svg-container">
