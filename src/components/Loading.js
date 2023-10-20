@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../styles/Loading.css';
 import { useHamburgerMenu } from './HamburgerMenu';
 import { motion } from 'framer-motion';
 
 function Loading({ loading }) {
-  const { show, setShow } = useHamburgerMenu();
+  const { show } = useHamburgerMenu();
 
-  useEffect(() => {
-    window.addEventListener('load', () => {
-      // setTimeout(() => {
-        setShow(false);
-      // }, 2000);
-    }, [setShow]);
-
-  }, [setShow]);
 
   return show ? (
     <motion.div 
