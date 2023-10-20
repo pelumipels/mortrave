@@ -42,11 +42,11 @@ return (
                     <li><span>Cookies Policy</span></li>
                 </ul>
               </div>
-              
+
               <div className='footerSection'>
                 <div className='footerHeading'>Contact</div>
                 <ul>
-                    <CopyToClipboard text="+2349040426882" onCopy={handleCopySuccess}>
+                    <CopyToClipboard text="+23499888996" onCopy={handleCopySuccess}>
                   <li style={{cursor:'pointer'}}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ return (
                         fillOpacity="0.7"
                       />
                     </svg>
-                      <span>+234 904 042 6882</span>
+                      <span>+234 909 988 8996</span>
                   </li>
                     </CopyToClipboard>
                   <li>
