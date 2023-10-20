@@ -44,6 +44,9 @@
     gap: 10px;
     align-items: center;
 }
+.footerSection ul li span {
+    text-decoration: underline;
+}
 .footerSection ul li a {
     display: flex;
     align-items: center;
