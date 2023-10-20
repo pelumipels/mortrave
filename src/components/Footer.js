@@ -46,7 +46,7 @@ return (
               <div className='footerSection'>
                 <div className='footerHeading'>Contact</div>
                 <ul>
-                    <CopyToClipboard text="+23499888996" onCopy={handleCopySuccess}>
+                    <CopyToClipboard text="+234909888996" onCopy={handleCopySuccess}>
                   <li style={{cursor:'pointer'}}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
