@@ -1,36 +1,34 @@
+import Typewriter from 'typewriter-effect';
 import React, { useState } from 'react';
+import '../styles/HeroSection.css';
+import Logo from './Logo';
+import Button from './Button';
+import Navbar from './Navbar';
 import LoginPage from '../assets/firstPhoneHS.png'
 import Dashboard3 from '../assets/secondPhoneHS.png'
 import Login3 from '../assets/thirdPhoneHS.png'
 import IdVerify from '../assets/fourthPhoneHS.png'
-import Logo from './Logo';
-import Button from './Button';
-import Navbar from './Navbar';
-import '../styles/HeroSection.css';
 import { useHamburgerMenu } from './HamburgerMenu';
 import { useEmailHandleSubmit } from "./SubmitForm";
-import Typewriter from 'typewriter-effect';
 
 
 function HeroSection() {
 
-    const { setIsHamburgerMenuOpen } = useHamburgerMenu();
-    const { submitFormToGoogleSheets } = useEmailHandleSubmit();
-
     const initialFormData = {
         email: ''
     };
+    
+    const [defaultFormData, setFormData] = useState(initialFormData);
+    const { submitFormToGoogleSheets } = useEmailHandleSubmit();
+    const { setIsHamburgerMenuOpen } = useHamburgerMenu();
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzIvubATs2s8aqtEHeZWdJOBgoJX2bE5c3vVtDlpR_blnSLTTQkoaFOTgMypblnt5yaBQ/exec';
-
-    const [defaultFormData, setFormData] = useState(initialFormData);
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission behavior
         const formData = e.target;
-
-        // Form is valid, proceed with submission
-        submitFormToGoogleSheets( initialFormData, formData, setFormData, scriptURL );
+        console.log(formData)
+        submitFormToGoogleSheets( formData, scriptURL, "WaitList Email" );
     };
 
     const toggleHamburgerMenu = () => {
@@ -84,10 +82,8 @@ return (
         <form onSubmit={handleSubmit} id='joinWaitList' className='formEmail'>
             <div className='formDiv'>
                 <div className='inputLabel1'>
-                    <div>
-                        <input type='email' name='email' id='email' autoComplete='email' value={defaultFormData.email} onChange={(e) => setFormData({ ...defaultFormData, email: e.target.value })} required />
-                        <label className='placeholder1'>Enter email address...</label>
-                    </div>
+                    <input type='email' name='email' id='emailHeroSection' autoComplete='email' value={defaultFormData.email} onChange={(e) => setFormData({ ...defaultFormData, email: e.target.value })} required />
+                    <span>Enter email address...</span>
                 </div>
                 <Button innerText='Join Waitlist' button="joinWaitlistFirstButton" />
             </div>

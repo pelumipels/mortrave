@@ -1,11 +1,11 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { AnimatePresence } from "framer-motion";
+import { useHamburgerMenu } from './components/HamburgerMenu';
+import { Routes, Route } from 'react-router-dom';
 import Loading from './components/Loading';
 import Home from './pages/Home';
 import SuccessPage from './pages/SuccessPage';
-import { useHamburgerMenu } from './components/HamburgerMenu';
 
 
 function App() {

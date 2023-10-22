@@ -8,24 +8,18 @@ import { useEmailHandleSubmit } from "./SubmitForm";
 
 function WaitList() {
 
-    const { submitFormToGoogleSheets } = useEmailHandleSubmit();
-
     const initialFormData = {
         email: ''
     };
-
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzIvubATs2s8aqtEHeZWdJOBgoJX2bE5c3vVtDlpR_blnSLTTQkoaFOTgMypblnt5yaBQ/exec';
-
-    // const [formData, setFormData] = useState(initialFormData);
+    
     const [defaultFormData, setFormData] = useState(initialFormData);
-
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzIvubATs2s8aqtEHeZWdJOBgoJX2bE5c3vVtDlpR_blnSLTTQkoaFOTgMypblnt5yaBQ/exec';
+    const { submitFormToGoogleSheets } = useEmailHandleSubmit();
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission behavior
         const formData = e.target;
-
-        // Form is valid, proceed with submission
-        submitFormToGoogleSheets( initialFormData, formData, setFormData, scriptURL );
+        submitFormToGoogleSheets( formData, scriptURL, "WaitList Email" );
     };
 
 return (
@@ -38,10 +32,8 @@ return (
                 <form onSubmit={handleSubmit} className='formEmail3'>
                     <div className='formDiv3'>
                         <div className='inputLabel2'>
-                            <div>
-                                <input type='email' name='email' id='email1' autoComplete='email' value={defaultFormData.email} onChange={(e) => setFormData({ ...defaultFormData, email: e.target.value })} required />
-                                <label className='placeholder2'>Enter email address...</label>
-                            </div>
+                            <input type='email' name='email' id='emailWaitList' autoComplete='email' value={defaultFormData.email} onChange={(e) => setFormData({ ...defaultFormData, email: e.target.value })} required />
+                            <span>Enter email address...</span>
                         </div>
                         <Button innerText='Join Waitlist' button="joinWaitlistSecondButton" />
                     </div>

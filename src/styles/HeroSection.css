@@ -111,32 +111,32 @@
     animation: leftToRight 3s infinite linear;
 }
 .formEmail {
+    position: relative;
     width: 90%;
     max-width: 350px;
     margin: 0 auto 0 auto;
 }
-.formEmail .formDiv .inputLabel1 {
+.inputLabel1 {
     width: 100%;
     height: 45px;
     box-sizing: border-box;
     margin: 0 auto 10px auto;
 }
-.formEmail .formDiv input {
-    background: black;
+.inputLabel1 input {
+    background: transparent;
     padding: 10px 15px;
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
     outline: none;
-    font-size: 18px;
+    font-size: 15px;
     border: 1px solid rgba(153, 157, 160, 0.60);
     border-radius: 10px;
     color: #808080;
 }
-.placeholder1 {
+.inputLabel1 span {
     position: absolute;
-    top: 11px;
-    left: 8px;
+    top: 6px;
+    left: 2px;
     font-size: 18px;
     padding: 0 10px;
     color: #808080;
@@ -148,15 +148,13 @@
     background: black;
     border-radius: 5px;
 }
-.formEmail .formDiv input:focus + .placeholder1 {
-    top: -11px;
+.inputLabel1 input:valid ~ span,
+.inputLabel1 input:focus ~ span {
     color: rgba(153, 157, 160, 0.60);
     background: black;
+    padding-left: 5px;
     width: auto;
-}
-.inputLabel1 div {
-    position: relative;
-    height: 100%;
+    transform: translateX(5px) translateY(-20px);
 }
 .formEmail .formDiv input:focus,
 .formEmail .formDiv input:hover {
@@ -292,6 +290,9 @@
         margin-bottom: 0;
         padding-left: 20px;
         border-color: #800080;
+    }
+    .inputLabel1 span {
+        width: 65%;
     }
     .joinWaitlistFirstButton {
         width: 230px;

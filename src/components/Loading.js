@@ -13,11 +13,11 @@ function Loading({ loading }) {
       // Use GSAP to fade out the loading spinner
       gsap.to('.svg-container', {
         opacity: 0,
-        duration: 3,
+        duration: 1,
         onComplete: () => setShow(false),
       });
     }
-}, [show, setShow]);
+});
 
   return show ? (
     <div className="svg-container">

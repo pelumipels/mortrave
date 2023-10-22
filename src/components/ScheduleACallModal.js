@@ -16,49 +16,34 @@ function ScheduleACall({setOpenModal}) {
         country_of_residence: '',
         comments: ''
     };
-
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwET_lKGbf9GWFt9L7vcVHJqK7mprjDbGnS67UWnJhZ5C8ARCtQZMEnPIYkXG04Zf26Cg/exec';
-
     const [defaultFormData, setFormData] = useState(initialFormData);
 
-    const handleSubmit = (e) => {
-      e.preventDefault(); // Prevent the default form submission behavior
-      const formData = e.target;
-
-      // Form is valid, proceed with submission
-      submitFormToGoogleSheets( initialFormData, formData, setFormData, scriptURL );
-  };
-
-    const closeModalSchedule = (e) => {
-      e.preventDefault(); // Prevent the default form submission behavior
-      setOpenModal(false);
-    };
-
-  useEffect(() => {
-    const countries = countryList.getNames();
-
-    // Create an array of <option> elements
-    const optionElements = countries.map((country, index) => (
-      <option key={index} value={country}>
-        {country}
-      </option>
-    ));
-
-    // Add an initial disabled option as the first element
-    optionElements.unshift(
-      <option key="initial" value="" disabled>
-        Select your country
-      </option>
-    );
-
-    // Use the functional form of setFormData to update the state
-    setFormData((prevData) => ({
-      ...prevData,
-      countryOptions: optionElements
-    }));
-    
-    }, [setOpenModal]);
+    useEffect(() => {
+      const countries = countryList.getNames();
   
+      // Create an array of <option> elements
+      const optionElements = countries.map((country, index) => (
+        <option key={index} value={country}>
+          {country}
+        </option>
+      ));
+  
+      // Add an initial disabled option as the first element
+      optionElements.unshift(
+        <option key="initial" value="" disabled>
+          Select your country
+        </option>
+      );
+  
+      // Use the functional form of setFormData to update the state
+      setFormData((prevData) => ({
+        ...prevData,
+        countryOptions: optionElements
+      }));
+      
+      }, [setOpenModal]);
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwET_lKGbf9GWFt9L7vcVHJqK7mprjDbGnS67UWnJhZ5C8ARCtQZMEnPIYkXG04Zf26Cg/exec';
 
     const handleKeyPress = (event) => {
         const char = event.which;
@@ -71,6 +56,17 @@ function ScheduleACall({setOpenModal}) {
           event.preventDefault(); // Prevent non-alphabetic characters
         }
       };
+
+    const handleSubmit = (e) => {
+      e.preventDefault(); // Prevent the default form submission behavior
+      const formData = e.target;
+      // Form is valid, proceed with submission
+      submitFormToGoogleSheets( formData, scriptURL, "Schedule A Call Email" );
+  };
+
+    const closeModalSchedule = () => {
+      setOpenModal(false);
+    };
 
   return (
     <div className='scheduleACall' onClick={closeModalSchedule}>

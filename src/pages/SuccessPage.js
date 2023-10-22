@@ -16,28 +16,6 @@ function SuccessPage() {
   const location = useLocation();
   const successData = location.state.successData; 
 
-  // useEffect(() => {
-  //   // Use GSAP to animate elements when the Home component mounts
-  //   const elementsToAnimate = document.querySelectorAll('.successPageContainer');
-
-  //   gsap.from(elementsToAnimate, {
-  //     opacity: 0,
-  //     x: -50,
-  //     duration: 1,
-  //     stagger: 0.2, // Stagger the animations for multiple elements
-  //   });
-
-  //         // Return a cleanup function to handle exit animations
-  //   return () => {
-  //     // Use GSAP to animate elements when the Home component unmounts or exits
-  //     gsap.to(elementsToAnimate, {
-  //       opacity: 0,
-  //       x: 50,
-  //       duration: 1,
-  //     });
-  //   };
-  // }, []);
-
   const goHome = () => {
     setFormFilled(false);
     navigate('/');

@@ -34,51 +34,47 @@
     max-width: 274px;
     margin: 20px auto 0 auto;
 }
-.formEmail3 .formDiv3 .inputLabel2 {
+.inputLabel2 {
     width: 100%;
     height: 45px;
     box-sizing: border-box;
     margin: 0 auto 10px auto;
 }
-.formDiv3 input {
-    background: #800080;
+.inputLabel2 input {
+    background: transparent;
     padding: 10px 15px;
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
     outline: none;
-    font-size: 16px;
+    font-size: 14px;
     border: 1px solid #FFF;
     border-radius: 10px;
     color: #fff;
 }
-.placeholder2 {
+.inputLabel2 span {
     position: absolute;
-    top: 11px;
-    left: 8px;
+    top: 6px;
+    left: 2px;
     font-size: 18px;
     padding: 0 10px;
-    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
     color: #fff;
-    box-sizing: border-box;
     transition: 0.3s;
     pointer-events: none;
     line-height: 22px;
-    width: 94%;
+    width: 90%;
     background: #800080;
     border-radius: 5px;
 }
-.formEmail3 .formDiv3 input:focus + .placeholder2 {
-    top: -11px;
-    color: rgba(153, 157, 160, 0.60);
+.inputLabel2 input:valid ~ span,
+.inputLabel2 input:focus ~ span {
     background: #800080;
     width: auto;
-    padding-left: 10px;
     color: black;
-}
-.inputLabel2 div {
-    position: relative;
-    height: 100%;
+    font-size: 16px;
+    padding-left: 7px;
+    transform: translateX(5px) translateY(-16px);
 }
 .formEmail3 .formDiv3 input:focus,
 .formEmail3 .formDiv3 input:hover {
