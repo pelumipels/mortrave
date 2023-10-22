@@ -51,7 +51,7 @@
     border-radius: 10px;
     color: #fff;
 }
-.inputLabel2 span {
+.inputLabel2 span { 
     position: absolute;
     top: 8px;
     left: 2px;
@@ -162,17 +162,16 @@
         gap: 10px;
         align-items: center;
     }
-    .formDiv3 input {
-        flex: 1;
-        max-width: 492px;
+    .inputLabel2 input {
+        width: 100%;
         margin: 0;
     }
-    .formEmail3 .formDiv3 .inputLabel2 {
+    .inputLabel2 {
         margin-bottom: 0;
+        position: relative;
     }
-    .placeholder2 {
-        padding-right: 0;
-        width: 91%;
+    .inputLabel2 span {
+        width: 93%;
     }
     .joinWaitlistSecondButton {
         width: 230px;
@@ -190,5 +189,10 @@
         margin: 0;
         max-width: none;
         width: 321px;
+    }
+}
+@media screen and (min-width: 1288px) {
+    .inputLabel2 span {
+        width: 95%;
     }
 }
