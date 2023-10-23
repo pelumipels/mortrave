@@ -1,17 +1,29 @@
 .features {
     text-align: center;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     margin-bottom: 50px;
 }
-.headerTextFeatures {
+/* .headerTextFeatures {
     color:#800080;
-    font-family: Metropolis;
+    font-family: 'Metropolis';
     font-size: 10px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
     margin-bottom: 15px;
+} */
+.headerTextFeatures {
+    color:#800080;
+    font-family: 'Metropolis';
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 50px;
 }
 .featureTopic {
     width: 80%;
@@ -30,7 +42,7 @@
     width: 80%;
     margin: 0 auto;
     max-width: 560px;
-    font-family: Metropolis;
+    font-family: 'Metropolis';
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -56,7 +68,7 @@
 }
 .featuresSubDetail {
     color: #EAEAEA;
-    font-family: Metropolis;
+    font-family: 'Metropolis';
     font-size: 18px;
     font-style: normal;
     font-weight: 400;

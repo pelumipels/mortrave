@@ -42,6 +42,7 @@ function Home() {
         />
         <Loading loading={loading}/>
         <HeroSection />
+        <div className='headerTextFeatures'>FEATURES</div>
         <Features1 
           featuresTopic={featuresData[0].featuresTopic}
           featuresDetail={featuresData[0].featuresDetail}

@@ -12,7 +12,7 @@ return (
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: .5 }}
         >
-            <div className='headerTextFeatures'>FEATURES</div>
+            {/* <div className='headerTextFeatures'>FEATURES</div> */}
             <div className='featureTopic'>{featuresTopic}</div>
             <div className='featureDetail'>{featuresDetail}</div>
         </motion.div>

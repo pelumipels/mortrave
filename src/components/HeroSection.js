@@ -58,7 +58,7 @@ return (
                 </svg>
             </div>
         </div>
-        <div className='comingSoonDiv'>Coming Soon</div>
+        {/* <div className='comingSoonDiv'>Coming Soon</div> */}
         <div className='heroHeaderText' id='heroHeaderText'>
         <Typewriter
             onInit={(typewriter) => {
