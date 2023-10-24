@@ -14,9 +14,9 @@ export function useHamburgerMenu() {
 
 // Provider component to wrap around components needing access to the state
 export function HamburgerMenuProvider({ children }) {
-  const [show, setShow] = useState(true);
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
   const [loading, setLoading] = useState(false)
+  const [show, setShow] = useState(true);
   const [formFilled, setFormFilled] = useState(false);
 
   return (

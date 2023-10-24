@@ -4,6 +4,7 @@ import { useHamburgerMenu } from './HamburgerMenu';
 import { gsap } from 'gsap';
 
 
+
 function Loading({ loading }) {
   const { show, setShow } = useHamburgerMenu();
 
@@ -17,7 +18,7 @@ function Loading({ loading }) {
         onComplete: () => setShow(false),
       });
     }
-});
+    },[show, setShow]);
 
   return show ? (
     <div className="svg-container">
