@@ -22,7 +22,7 @@ function App() {
     if (path === "/successful-form-submission" && !formFilled) {
       // If formFiled is false, route to the Home page instead of SuccessPage.
       return (
-        <Route key={index} path={path} element={<Home />} />
+        <Route key={index} path="/" element={<Home />} />
       );
     } else {
       // For other routes or when formFiled is true, use the original route

@@ -27,7 +27,6 @@ function HeroSection() {
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission behavior
         const formData = e.target;
-        console.log(formData)
         submitFormToGoogleSheets( formData, scriptURL, "WaitList Email" );
     };
 
